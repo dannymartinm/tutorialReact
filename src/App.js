@@ -345,4 +345,26 @@ class Label extends Component {
 const LabelHOC = HOC(Label);
 */
 
+class App extends Component {
+  render() {
+    return (
+      <Parent>
+        <div className="childA" />
+        <div className="childB" />
+      </Parent>
+    );
+  }
+}
+
+class Parent extends Component {
+  render() {
+    let items = React.Children.forEach(this.props.children, child =>
+      console.log(child.props.className)
+    );
+
+    //let items = React.Children.toArray(this.props.children);
+    console.log(items);
+    return null;
+  }
+}
 export default App;
